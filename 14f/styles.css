@@ -1,0 +1,90 @@
+/* styles.css */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, black, red); /* Invertido: negro arriba, rojo abajo */
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Botón de corazón rojo */
+.heart-button {
+    position: relative;
+    background-color: #ff0000; /* Rojo puro */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 20px 40px; /* Tamaño del botón */
+    font-size: 24px; /* Tamaño del texto */
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer;
+    animation: latido 1.5s infinite; /* Animación de latido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
+}
+
+/* Ícono de corazón */
+.heart-button::before {
+    content: '❤️';
+    margin-right: 10px;
+}
+
+/* Animación de latido */
+@keyframes latido {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    position: absolute;
+    bottom: -100%; /* Comienza fuera de la pantalla */
+    width: 300px; /* Ancho de la imagen */
+    height: auto;
+    animation: aparecerImagen 2s ease-in-out forwards;
+    display: none; /* Oculto inicialmente */
+}
+
+/* Animación de la imagen */
+@keyframes aparecerImagen {
+    0% {
+        bottom: -100%;
+    }
+    100% {
+        bottom: 20%; /* Ajuste para que la imagen esté más abajo */
+    }
+}
+
+/* Estilos para la imagen */
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
+}
+
+/* Contenedor del texto */
+.text-container {
+    position: absolute;
+    bottom: 10%; /* Ajuste para que el texto esté más cerca de la imagen */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: white;
+    font-style: italic; /* Texto en cursiva */
+    white-space: nowrap; /* Evita saltos de línea */
+    overflow: hidden; /* Oculta el texto hasta que se escriba */
+    border-right: 2px solid white; /* Efecto de cursor */
+    display: none; /* Oculto inicialmente */
+}
